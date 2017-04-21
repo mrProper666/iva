@@ -1,0 +1,106 @@
+header {
+  padding-top: rem-calc(10);
+  padding-bottom: rem-calc(10);
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  min-height: rem-calc(64);
+  background-color: rgba(245, 246, 249, 0);
+  -webkit-transition: background-color 0.15s linear, top 0.15s ease-out;
+  transition: background-color 0.15s linear, top 0.15s ease-out;
+  top: 0;
+  &.scroll {
+    background-color: rgba(245, 246, 249, 0.9);
+  }
+  &.toggled {
+    top: 0 !important;
+    background-color: rgba(245, 246, 249, 0.9);
+  }
+  .hamburger {
+    a {
+      text-indent: 9999px;
+      display: block;
+      @include hamburger($dark-gray, $white, 35px, 25px, 4px, 3);
+    }
+  }
+  .menu {
+    padding-bottom: 10px;
+  }
+}
+h3 {
+  font-weight: bold;
+}
+h4 {
+  font-weight: bold;
+}
+a.arrow {
+  &:after {
+    content: url(../img/a-button-after-arrow.png);
+    display: inline-block;
+    margin-left: 5px;
+    -webkit-transition: margin-left 0.15s linear;
+    transition: margin-left 0.15s linear;
+  }
+  &:hover {
+    &:after {
+      margin-left: 9px;
+    }
+  }
+}
+footer {
+  hr {
+    border: none;
+    background-color: $dark-gray;
+    height: 2px;
+  }
+  padding-top: rem-calc(15);
+  padding-bottom: rem-calc(45);
+  ul {
+    @include clearfix();
+    display: inline-block;
+    list-style-type: none;
+    @include breakpoint(medium down) {
+      margin: rem-calc(15) auto rem-calc(15) auto;
+    }
+    li {
+      float: left;
+      margin-right: rem-calc(20);
+      @include breakpoint(medium down) {
+        margin-right: rem-calc(10);
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  span {
+    display: block;
+  }
+  @include breakpoint(medium down) {
+    text-align: center;
+  }
+  a {
+    color: $dark-gray;
+    &:hover {
+      color: $black;
+    }
+  }
+  .copyright {
+    color: #787878;
+    font-size: 80%;
+  }
+}
+
+.no-js {
+  @include breakpoint(small only) {
+    header {
+      display: none;
+    }
+  }
+
+  @include breakpoint(medium) {
+    header {
+      display: none;
+    }
+  }
+}
